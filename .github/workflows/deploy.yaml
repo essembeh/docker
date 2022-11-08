@@ -28,6 +28,10 @@ jobs:
             dockerfile: Dockerfile
             image: ghcr.io/essembeh/borgmatic
             tag: latest
+          - context: ./weechat
+            dockerfile: Dockerfile
+            image: ghcr.io/essembeh/weechat
+            tag: latest
     permissions:
       contents: read
       packages: write

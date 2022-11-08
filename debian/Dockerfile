@@ -16,7 +16,7 @@ RUN zsh -i -c "omz theme set $OMZ_THEME"
 RUN zsh -i -c "omz plugin enable $OMZ_PLUGINS"
 
 # configure tmux
-ADD https://raw.githubusercontent.com/essembeh/dotfiles/main/tmux/tmux.conf /root/.tmux.conf
+ADD https://raw.githubusercontent.com/essembeh/dotfiles/main/tmux/tmux.conf /etc/tmux.conf
 
 # configure vim
 RUN echo "set mouse-=a" > /root/.vimrc
