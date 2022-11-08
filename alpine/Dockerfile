@@ -15,6 +15,7 @@ RUN zsh -i -c "omz plugin enable $OMZ_PLUGINS"
 
 # configure tmux
 ADD https://raw.githubusercontent.com/essembeh/dotfiles/main/tmux/tmux.conf /etc/tmux.conf
+RUN chmod 644 /etc/tmux.conf
 
 # configure vim
 RUN echo "set mouse-=a" > /root/.vimrc
