@@ -6,7 +6,7 @@ RUN apt update && \
     apt clean
 
 # install omz
-ENV ZSH=/root/.oh-my-zsh
+ENV ZSH=/root/.ohmyzsh
 RUN CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # configure omz
