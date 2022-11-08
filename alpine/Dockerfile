@@ -1,27 +1,17 @@
-FROM debian:stable-slim
+FROM alpine:latest
 
 # install dependencies
-RUN apt update && \
-    apt install -y zsh git curl vim tmux && \
-    apt clean
-
-# use zsh as entrypoint
-ENTRYPOINT zsh
+RUN apk add --no-cache zsh git curl vim tmux
 
 # install omz
-ARG CHSH=no
-ARG RUNZSH=no
 ENV ZSH=/root/.oh-my-zsh
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# customize omz
+# configure omz
 ARG OMZ_THEME="essembeh"
 ARG OMZ_PLUGINS="python pip"
 RUN zsh -i -c "omz theme set $OMZ_THEME"
 RUN zsh -i -c "omz plugin enable $OMZ_PLUGINS"
-
-# change default shell for root
-RUN sed -i "/^root:/ s@/bin/ash@/bin/zsh@" /etc/passwd
 
 # configure tmux
 ADD https://raw.githubusercontent.com/essembeh/dotfiles/main/tmux/tmux.conf /root/.tmux.conf

@@ -1,4 +1,4 @@
-name: Create and publish a Docker images
+name: Create and publish my custom Docker images
 
 on:
   push:
@@ -16,12 +16,12 @@ jobs:
       max-parallel: 1
       matrix:
         include:
-          - context: ./zsh
-            dockerfile: Dockerfile-alpine
+          - context: ./alpine
+            dockerfile: Dockerfile
             image: ghcr.io/essembeh/alpine
             tag: latest
-          - context: ./zsh
-            dockerfile: Dockerfile-debian
+          - context: ./debian
+            dockerfile: Dockerfile
             image: ghcr.io/essembeh/debian
             tag: latest
           - context: ./borgmatic
