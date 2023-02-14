@@ -1,19 +1,20 @@
 FROM debian:stable-slim
 
+# default theme
+ARG OMZ_THEME="essembeh"
+# default plugins
+ARG OMZ_PLUGINS="python pip"
+
+
 # install dependencies
 RUN apt update && \
     apt install -y zsh git curl vim tmux && \
     apt clean
 
-# install omz
+# install ohmyzsh
 ENV ZSH=/root/.ohmyzsh
 RUN CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# configure omz
-ARG OMZ_THEME="essembeh"
-ARG OMZ_PLUGINS="python pip"
-RUN zsh -i -c "omz theme set $OMZ_THEME"
-RUN zsh -i -c "omz plugin enable $OMZ_PLUGINS"
 
 # configure tmux
 ADD https://raw.githubusercontent.com/essembeh/dotfiles/main/tmux/tmux.conf /etc/tmux.conf
