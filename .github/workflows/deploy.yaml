@@ -1,6 +1,9 @@
 name: Create and publish my custom Docker images
 
 on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 7 * * Mon'
   push:
     branches: ["latest"]
 
