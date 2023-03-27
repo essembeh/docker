@@ -8,7 +8,7 @@ ARG OMZ_PLUGINS="git python pip"
 
 # install dependencies
 RUN apt update && \
-    apt install -y zsh git curl vim tmux && \
+    apt install -y zsh git curl vim tmux gosu && \
     apt clean
 
 # install ohmyzsh
