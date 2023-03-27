@@ -3,7 +3,7 @@ FROM debian:stable-slim
 # default theme
 ARG OMZ_THEME="essembeh"
 # default plugins
-ARG OMZ_PLUGINS="python pip"
+ARG OMZ_PLUGINS="git python pip"
 
 
 # install dependencies

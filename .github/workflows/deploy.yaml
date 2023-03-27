@@ -27,9 +27,9 @@ jobs:
             dockerfile: Dockerfile
             image: ghcr.io/essembeh/debian
             tag: latest
-          - context: ./borgmatic
+          - context: ./backup
             dockerfile: Dockerfile
-            image: ghcr.io/essembeh/borgmatic
+            image: ghcr.io/essembeh/backup
             tag: latest
           - context: ./weechat
             dockerfile: Dockerfile
