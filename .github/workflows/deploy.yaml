@@ -31,10 +31,6 @@ jobs:
             dockerfile: Dockerfile
             image: ghcr.io/essembeh/backup
             tag: latest
-          - context: ./weechat
-            dockerfile: Dockerfile
-            image: ghcr.io/essembeh/weechat
-            tag: latest
     permissions:
       contents: read
       packages: write
