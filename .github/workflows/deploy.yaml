@@ -31,10 +31,6 @@ jobs:
             dockerfile: Dockerfile
             image: ghcr.io/essembeh/backup
             tag: latest
-          - context: ./roop
-            dockerfile: Dockerfile
-            image: ghcr.io/essembeh/roop
-            tag: latest
     permissions:
       contents: read
       packages: write
